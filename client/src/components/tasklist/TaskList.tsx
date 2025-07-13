@@ -7,14 +7,19 @@ import styles from "./TaskList.module.css"
 interface Props {
   taskList: ITask[];
   handleDelete(id: number): void
+  showModal: boolean
+  setShowModal: React.Dispatch<React.SetStateAction<boolean>>
+  handleShowModal(task: ITask): void
 }
 
 //Icons
 import { MdEdit } from "react-icons/md";
 import { FaRegTrashAlt } from "react-icons/fa";
+import type React from "react";
 
 
-export const TaskList = ({ taskList, handleDelete }: Props) => {
+export const TaskList = ({ taskList, handleDelete, showModal, setShowModal, handleShowModal }: Props) => {
+
   return (
     <div className={styles.containerTaskList}>
       <h2>Suas Tarefas:</h2>
@@ -27,7 +32,7 @@ export const TaskList = ({ taskList, handleDelete }: Props) => {
                   <p>dificuldade: {t.difficulty}</p>
               </div>
               <div className={styles.toolTask}>
-                <MdEdit />
+                <MdEdit onClick={() => handleShowModal(t)} />
                 <FaRegTrashAlt onClick={() => handleDelete(t.id)} />
               </div>
             </div>
