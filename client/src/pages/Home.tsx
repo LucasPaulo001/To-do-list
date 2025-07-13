@@ -8,11 +8,18 @@ import type { ITask } from "../interfaces/Task"
 export const Home = () => {
     const [taskList, setTaskList] = useState<ITask[]>([])
 
+    const deleteTask = (id: number) => {
+        setTaskList(
+            taskList.filter(task => {
+            return task.id !== id
+        }))
+    }
+
     return(
         <div className="container">
             <h2>O que você quer fazer?</h2>
             <Form taskList={taskList} setTaskList={setTaskList}/>
-            <TaskList taskList={taskList}/>
+            <TaskList taskList={taskList} handleDelete={deleteTask}/>
         </div>
     )
 }

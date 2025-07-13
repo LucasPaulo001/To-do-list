@@ -21,10 +21,10 @@ export const Form = ({taskList, setTaskList}: Props) => {
     const handleSubmit = (e:FormEvent<HTMLFormElement>) => { 
         e.preventDefault()
 
-        const idTask = Math.floor(Math.random() * 1000)
+        const id = Math.floor(Math.random() * 1000)
 
         const newTask: ITask = {
-            id: idTask,
+            id: id,
             title: title,
             difficulty: difficulty
         }
@@ -43,6 +43,7 @@ export const Form = ({taskList, setTaskList}: Props) => {
                 <div className={styles.localInput}>
                     <label htmlFor="Title">Título:</label>
                     <input 
+                        required
                         placeholder="Título da tarefa" 
                         type="text" name="title"
                         value={title}
