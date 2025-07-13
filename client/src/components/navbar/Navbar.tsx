@@ -1,11 +1,9 @@
+import styles from "./Navbar.module.css"
 
 export const Navbar = () => {
     return(
-        <nav>
+        <nav className={styles.navbar}>
             <h3>To do list</h3>
-            <ul>
-                <li>link</li>
-            </ul>
         </nav>
     )
 }

@@ -1,0 +1,10 @@
+
+.navbar{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    height: 15vh;
+    align-items: center;
+    font-size: 3vw;
+    color: #2953A6;
+}
